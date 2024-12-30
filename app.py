@@ -74,11 +74,13 @@ if st.sidebar.button("Submit"):
     # Perform prediction
     predictions = multi_classifier_xgb.predict(input_df)
 
-    # Map predictions back to their string equivalents
-    decoded_predictions = {
-        col: reverse_column_mappings[col][val]
-        for col, val in zip(target_columns, predictions[0])
-    }
+    # Map predictions back to their string equivalents with error handling
+    decoded_predictions = {}
+    for col, val in zip(target_columns, predictions[0]):
+        try:
+            decoded_predictions[col] = reverse_column_mappings[col][val]
+        except KeyError:
+            decoded_predictions[col] = f"Unknown value ({val})"
 
     # Display selected independent values
     st.write("### Selected Independent Values")
