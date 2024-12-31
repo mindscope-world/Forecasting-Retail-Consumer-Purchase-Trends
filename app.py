@@ -12,10 +12,10 @@ import joblib
 
 # Define page navigation
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Model Page", "Feature Importance Page", "SHAP Page"])
+page = st.sidebar.radio("Go to", ["XGBoost Multiclassification Model", "Feature Importance", "SHAP Visualization"])
 
 # Model Page
-if page == "Model Page":
+if page == "XGBoost Multiclassification Model":
     st.title("XGBoost Multiclassification Model")
     # Save feature_columns and target_columns (add this block to your notebook/script for saving)
     def save_columns(feature_columns, target_columns):
@@ -103,7 +103,7 @@ if page == "Model Page":
 
 
 # Feature Importance Page
-elif page == "Feature Importance Page":
+elif page == "Feature Importance":
     st.title("Feature Importance")
     # Load Data and Preprocessing
     @st.cache_data
@@ -204,7 +204,7 @@ elif page == "Feature Importance Page":
         st.pyplot(fig)
 
 # SHAP Page
-elif page == "SHAP Page":
+elif page == "SHAP Visualization":
     # Title for the Streamlit app
     st.title("SHAP Visualization for Model Interpretability")
 
