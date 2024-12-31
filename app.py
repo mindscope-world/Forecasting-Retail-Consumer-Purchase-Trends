@@ -1,7 +1,9 @@
 import streamlit as st
+import shap
 import xgboost as xgb
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 from sklearn.multioutput import MultiOutputClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
@@ -14,7 +16,7 @@ page = st.sidebar.radio("Go to", ["Model Page", "Feature Importance Page", "SHAP
 
 # Model Page
 if page == "Model Page":
-    st.title("Model Page")
+    st.title("XGBoost Multiclassification Model")
     # Save feature_columns and target_columns (add this block to your notebook/script for saving)
     def save_columns(feature_columns, target_columns):
         joblib.dump(feature_columns, 'feature_columns.pkl')
@@ -102,7 +104,7 @@ if page == "Model Page":
 
 # Feature Importance Page
 elif page == "Feature Importance Page":
-    st.title("Feature Importance Page")
+    st.title("Feature Importance")
     # Load Data and Preprocessing
     @st.cache_data
     def load_data():
@@ -203,8 +205,6 @@ elif page == "Feature Importance Page":
 
 # SHAP Page
 elif page == "SHAP Page":
-    st.title("SHAP Page")
-
     # Title for the Streamlit app
     st.title("SHAP Visualization for Model Interpretability")
 
