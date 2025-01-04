@@ -19,7 +19,7 @@ This repository hosts a Streamlit application designed for exploring an XGBoost-
 - **Force Plot**: Explain individual predictions for selected samples.
 
 ---
-## [Demo](https://retail-consumer-purchase-trends.streamlit.app/)
+## Go to [Demo](https://retail-consumer-purchase-trends.streamlit.app/)
 ---
 
 ## Installation and Setup
